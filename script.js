@@ -11,7 +11,8 @@ const app = new Vue({
             if(this.current == null) {
                 this.current = {
                     object: this.records[index],
-                    startTime: new Date().getTime()
+                    startTime: new Date().getTime(),
+                    index: index
                 }
             } else {                
                 this.lastTime = new Date().getTime() - this.current.startTime

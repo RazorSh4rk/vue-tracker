@@ -16,12 +16,18 @@
         <div>
             <ul>
                 <li class="record" v-for="(el, index) in records">
-                    <div v-on:click="recordClick(index)">
+                    <div v-on:click="recordClick(index)" v-if="current == null || current.index == index">
                         <img class="recordimage" v-bind:src="el.image">
-                        <p class="bigtext">{{ el.name }} {{ '*'.repeat(el.tier) }}</p>
-                        <p class="smalltext">counter: {{ el.counter }}</p>
-                        <p class="smalltext">average time: {{ Math.round(el.times.reduce((a, b) => a + b, 0)/el.times.length/1000) }} s</p>
-                        <p class="tinytext">{{ index }}.</p>
+                        <div v-if="current == null">
+                            <p class="bigtext">{{ el.name }} {{ '*'.repeat(el.tier) }}</p>
+                            <p class="smalltext">counter: {{ el.counter }}</p>
+                            <p class="smalltext">average time: {{ Math.round(el.times.reduce((a, b) => a + b, 0)/el.times.length/1000) }} s</p>
+                            <p class="tinytext">{{ index }}.</p>
+                        </div>
+                        <div v-if="current != null">
+                            <p class="bigtext">{{ el.name }} {{ '*'.repeat(el.tier) }}</p>
+                            <p class="smalltext">click to stop counter</p>
+                        </div>
                     </div>
                 </li>
             </ul>
