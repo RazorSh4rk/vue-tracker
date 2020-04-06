@@ -1,0 +1,44 @@
+body, ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+#app {
+    margin: 0.5em;
+}
+
+.record {
+    display: inline-block;
+    border: 1px solid black;
+    margin: 0em 1vw 1vh 0em
+}
+
+.bigtext {
+    font-size: 120%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.smalltext {
+    font-size: 80%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tinytext {
+    font-size: 60%;
+    margin: 0px;
+    padding: 0px;
+    float: right;
+}
+
+.recordimage {
+    width: 100%;
+    height: 10vh;
+}
+
+.tinybutton {
+    font-size: 60%;
+    background: red;
+    color: white;
+}

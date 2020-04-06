@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>rpg tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <!-- dungeons listed -->
+
+        <div>
+            <ul>
+                <li class="record" v-for="(el, index) in records">
+                    <div v-on:click="recordClick(index)">
+                        <img class="recordimage" v-bind:src="el.image">
+                        <p class="bigtext">{{ el.name }} {{ '*'.repeat(el.tier) }}</p>
+                        <p class="smalltext">counter: {{ el.counter }}</p>
+                        <p class="smalltext">average time: {{ Math.round(el.times.reduce((a, b) => a + b, 0)/el.times.length/1000) }} s</p>
+                        <p class="tinytext">{{ index }}.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- tracker -->
+        <div>
+            <p v-if="current != null">
+                Tracking {{current.object.name}}
+                <br />
+                Start timestamp: {{ current.startTime }}
+            </p>
+            <p v-if="current == null">
+                Last recorded time: {{ lastTime }} ms
+                <br />
+                or {{ Math.round(lastTime/1000) }} s
+                <br />
+                or {{ Math.round(lastTime/1000/60) }} m
+            </p>
+        </div>
+
+        <!-- controls -->
+        <div>
+            <button v-on:click="save">save</button>
+            <button v-on:click="load">load</button>
+            <button v-on:click="exp">export</button>
+            <button v-on:click="reset" class="tinybutton">reset</button>
+        </div>
+
+        <div>
+            <p v-if="exported != ''">copy this text somewhere</p>
+            {{ exported }}
+        </div>
+
+    </div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
