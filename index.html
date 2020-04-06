@@ -66,13 +66,13 @@
         <div class="stats">
             <p class="bigtext">Statistics so far</p>
             <p class="smalltext">
-                *&nbsp&nbspdungeons completed: {{ records.filter(el => el.tier == 1 && el.counter > 0).length }}
+                *&nbsp&nbspdungeons completed: {{ records.filter(el => el.tier == 1).map(el => el.counter).reduce( (acc, el) => acc + el, 0 ) }}
             </p>
             <p class="smalltext">
-                **&nbspdungeons completed: {{ records.filter(el => el.tier == 2 && el.counter > 0).length }}
+                **&nbspdungeons completed: {{ records.filter(el => el.tier == 2).map(el => el.counter).reduce( (acc, el) => acc + el, 0 ) }}
             </p>
             <p class="smalltext">
-                ***dungeons completed: {{ records.filter(el => el.tier == 3 && el.counter > 0).length }}
+                ***dungeons completed: {{ records.filter(el => el.tier == 3).map(el => el.counter).reduce( (acc, el) => acc + el, 0 ) }}
             </p>
         </div>
 
