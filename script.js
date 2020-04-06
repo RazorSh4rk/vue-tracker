@@ -4,18 +4,22 @@ const app = new Vue({
         records: dungeons,
         current: null,
         lastTime: 0,
-        exported: ''
+        exported: '',
+        search: '',
+        confirmVisible: true
     },
     methods: {
         recordClick: function(index) {
+            // start
             if(this.current == null) {
                 this.current = {
                     object: this.records[index],
-                    startTime: new Date().getTime(),
+                    startTime: new Date(),
                     index: index
                 }
+            // stop
             } else {                
-                this.lastTime = new Date().getTime() - this.current.startTime
+                this.lastTime = new Date().getTime() - this.current.startTime.getTime()
                 this.records[index].times.push(this.lastTime)
                 this.records[index].counter++
                 this.current = null

@@ -3,6 +3,10 @@ body, ul {
     margin: 0px;
 }
 
+input {
+    margin-bottom: 1vh;
+}
+
 #app {
     margin: 0.5em;
 }

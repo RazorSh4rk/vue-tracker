@@ -10,12 +10,25 @@
 <body>
     
     <div id="app">
+
+        <!-- confirm 
+        <div class="confirm" v-if="confirmVisible">
+            Want to {{ current == null ? 'start' : 'stop' }} ?
+            <button v-on:click="conf(true)">yes</button>
+            <button v-on:click="conf(false)">no</button>
+        </div>
+        -->
         
+        <!-- search -->
+        <div>
+            <input type="text" placeholder="search" v-model="search">
+        </div>
+
         <!-- dungeons listed -->
 
         <div>
             <ul>
-                <li class="record" v-for="(el, index) in records">
+                <li class="record" v-for="(el, index) in records.filter(el => el.name.indexOf(this.search) > -1)">
                     <div v-on:click="recordClick(index)" v-if="current == null || current.index == index">
                         <img class="recordimage" v-bind:src="el.image">
                         <div v-if="current == null">
@@ -36,9 +49,9 @@
         <!-- tracker -->
         <div>
             <p v-if="current != null">
-                Tracking {{current.object.name}}
+                Tracking {{ current.object.name }}
                 <br />
-                Start timestamp: {{ current.startTime }}
+                Start timestamp: {{ current.startTime.getHours() }}:{{ current.startTime.getMinutes() }}
             </p>
             <p v-if="current == null">
                 Last recorded time: {{ lastTime }} ms
