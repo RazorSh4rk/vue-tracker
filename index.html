@@ -62,6 +62,20 @@
             </p>
         </div>
 
+        <!-- stats -->
+        <div class="stats">
+            <p class="bigtext">Statistics so far</p>
+            <p class="smalltext">
+                *&nbsp&nbspdungeons completed: {{ records.filter(el => el.tier == 1 && el.counter > 0).length }}
+            </p>
+            <p class="smalltext">
+                **&nbspdungeons completed: {{ records.filter(el => el.tier == 2 && el.counter > 0).length }}
+            </p>
+            <p class="smalltext">
+                ***dungeons completed: {{ records.filter(el => el.tier == 3 && el.counter > 0).length }}
+            </p>
+        </div>
+
         <!-- controls -->
         <div>
             <button v-on:click="save">save</button>
