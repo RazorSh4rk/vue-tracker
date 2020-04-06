@@ -54,11 +54,9 @@
                 Start timestamp: {{ current.startTime.getHours() }}:{{ current.startTime.getMinutes() }}
             </p>
             <p v-if="current == null">
-                Last recorded time: {{ lastTime }} ms
+                Last recorded time: {{ lastTime }} s
                 <br />
-                or {{ Math.round(lastTime/1000) }} s
-                <br />
-                or {{ Math.round(lastTime/1000/60) }} m
+                or {{ Math.round(lastTime/60) }} m
             </p>
         </div>
 

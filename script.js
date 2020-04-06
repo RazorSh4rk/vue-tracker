@@ -19,7 +19,7 @@ const app = new Vue({
                 }
             // stop
             } else {                
-                this.lastTime = new Date().getTime() - this.current.startTime.getTime()
+                this.lastTime = Math.round( (new Date().getTime() - this.current.startTime.getTime()) / 1000)
                 this.records[index].times.push(this.lastTime)
                 this.records[index].counter++
                 this.current = null
