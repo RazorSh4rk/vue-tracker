@@ -44,3 +44,4 @@ const app = new Vue({
             this.records = JSON.parse(d)
     }
 })
+
