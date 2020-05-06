@@ -14,3 +14,4 @@ const dungeons = [
         times: [2, 42]
     },
 ]
+
